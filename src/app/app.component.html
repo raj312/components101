@@ -1,20 +1,47 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
+<h1>
     Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+</h1>
 
+<h3>How components work</h3>
+<app-my-new-component></app-my-new-component>
+
+<h3>Displaying Objects</h3>
+<p> Use object.property to get the value of the specific property. <br>
+  Location: {{ myObject.location }} </p>
+
+<h3>Displaying Arrays </h3>
+<ul>
+<li *ngFor = "let arr of myArr">{{arr}}</li> 
+</ul>
+  
+<h3>If statement</h3>
+<div *ngIf = "myArr">I exist</div>
+<div *ngIf = "!myArr; then temp1 else temp2"></div><!--Note: when using then, dont put anything in the target div-->
+
+<ng-template #temp1>Yes i exist</ng-template>
+<ng-template #temp2>No, I dont</ng-template>
+
+<h3>Property binding - Passing values from component</h3>
+
+<img src="{{ angularLogo }}"> <p>This works when the property is a string</p>
+<img [src]="angularLogo"> <p> This is the most used methid</p>
+<img bind-src="angularLogo"> <p>Adding bind- to any attribute</p>
+
+<button [disabled]="buttonStatus">My Button</button>
+<button [disabled]="buttonStatus == 'enabled'">My Button</button>
+
+<h3>Event Binding</h3>
+
+<button (click)="myEvent($event)">Click_Event Button</button>
+<p>Use different events in brackets (eventtype)</p>
+
+<h3>Style / Class binding</h3>
+<p [ngClass]="titleClasses">This para is styled with multiple classes - titleClasses could be an object</p>
+
+<p [style.color]="styleErrorColor ? 'green' : 'error'">No errors right?</p>
+
+<p [ngStyle]="titleStyles">This para is styled with object styles</p>
+
+<h3>Services</h3>
+<p>{{ someProperty }}
